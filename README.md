@@ -37,5 +37,7 @@ Quais cálculos este módulo oferece?
 
 <br>
 
-<h2>Módulo ainda em produção</h2>
-
+<h2>Sobre o código</h2>
+<p>
+  As funções deste módulos são formuladas de acordo 
+</p>
