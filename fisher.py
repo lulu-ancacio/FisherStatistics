@@ -249,13 +249,6 @@ def correlacao(V1, V2):
     correlacao = cov/(dp1*dp2)
     return correlacao
     
-def pearson(V):
-    med = media(V)
-    median = mediana(V)
-    dp = desvioPadraoAmostral(V)
-    cp = 3*(med-median)/dp
-    return cp
-
 def correlacaoPearson(V1, V2):
     if len(V1) == len(V2):
         m1 = media(V1)
