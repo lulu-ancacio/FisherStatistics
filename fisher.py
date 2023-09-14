@@ -1,9 +1,18 @@
 import numpy as np
 import math
+import matplotlib.pyplot as plt
 
 def add(V, n):
     V.append(n)
     return V
+
+def maximo(V):
+    maximo = max(V)
+    return maximo
+
+def minimo(V):
+    minimo = min(V)
+    return minimo
 
 def quantElem(V):
     quantElem = len(V)
@@ -15,10 +24,13 @@ def somaElem(V):
     for i in range(tam):
         soma += V[i]
     return soma
-        
-def quantElem(V):
-    quant = len(V)
-    return quant
+
+def somaElemQuadrado(V):
+    soma = 0
+    tam = len(V)
+    for i in range(tam):
+        soma += V[i]**2
+    return soma
 
 def media(V):
     tam = len(V)
@@ -28,6 +40,29 @@ def media(V):
     media = soma/tam
     return media
 
+def mediaGeo(V):
+    tam = len(V)
+    mg = 1
+    for i in range(tam):
+        mg *= math.pow(V[i], 1/tam)
+    return mg
+    
+def mediaHarm(V):
+    tam = len(V)
+    soma = 0
+    for i in range(tam):
+        soma += 1/V[i]
+    mh = tam/soma
+    return mh
+    
+def mediaQuad(V):
+    tam = len(V)
+    soma = 0
+    for i in range(tam):
+        soma += V[i]**(2)
+    mq = math.sqrt(soma/tam)
+    return mq
+
 def mediana(V):
     vCresc = cresc(V)
     tam = len(V)
@@ -36,7 +71,7 @@ def mediana(V):
     else:
         mediana = (vCresc[int(tam/2)-1]+vCresc[int((tam/2))])/2
     return mediana
-        
+
 def quartil(V):
     tam = len(V)
     if tam>2:
@@ -60,7 +95,7 @@ def quartil(V):
         return quartil
     else:
         return None
-        
+
 def moda(V):
     tam = len(V)
     n = 0
@@ -87,7 +122,7 @@ def moda(V):
     for i in quantValores:
         moda.append(valores[i])
     return moda
-    
+
 def cresc(V):
     cont = 0
     armz = 0
@@ -101,7 +136,7 @@ def cresc(V):
                 V[i+1] = armz
         cont += 1
     return V
-    
+
 def decresc(V):
     cont = 0
     armz = 0
@@ -115,7 +150,7 @@ def decresc(V):
                 V[i+1] = armz
         cont += 1
     return V
-  
+
 def varianPopulacional(V):
     m = media(V)
     soma = 0
@@ -123,8 +158,8 @@ def varianPopulacional(V):
     for i in range(tam):
         soma += (V[i]-m)**2
         variancia = soma/tam
-    return variancia      
-    
+    return variancia
+
 def varianAmostral(V):
     m = media(V)
     soma = 0
@@ -132,8 +167,8 @@ def varianAmostral(V):
     for i in range(tam):
         soma += (V[i]-m)**2
         variancia = soma/(tam-1)
-    return variancia  
-    
+    return variancia
+
 def desvioPadrao(V):
     m = media(V)
     soma = 0
@@ -142,7 +177,7 @@ def desvioPadrao(V):
         soma += (V[i]-m)**2
     dp = math.sqrt(soma/tam)
     return dp
-    
+
 def desvioPadraoAmostral(V):
     m = media(V)
     soma = 0
@@ -151,7 +186,7 @@ def desvioPadraoAmostral(V):
         soma += (V[i]-m)**2
     dp = math.sqrt(soma/(tam-1))
     return dp
-    
+
 def intervalo(V):
     vCresc = cresc(V)
     tam = len(V)
@@ -159,7 +194,7 @@ def intervalo(V):
     maximo = vCresc[tam-1]
     intervalo = maximo - minimo
     return intervalo
-    
+
 def coefiVarian(V):
     dp = desvioPadrao(V)
     m = media(V)
@@ -205,7 +240,7 @@ def covariancia(V1, V2):
         c = numerador/(tam-1)
         return c
     else:
-      return None
+        return None
 
 def correlacao(V1, V2):
     cov = covariancia(V1, V2)
@@ -213,3 +248,49 @@ def correlacao(V1, V2):
     dp2 = desvioPadraoAmostral(V2)
     correlacao = cov/(dp1*dp2)
     return correlacao
+    
+def pearson(V):
+    med = media(V)
+    median = mediana(V)
+    dp = desvioPadraoAmostral(V)
+    cp = 3*(med-median)/dp
+    return cp
+
+def correlacaoPearson(V1, V2):
+    if len(V1) == len(V2):
+        m1 = media(V1)
+        m2 = media(V2)
+        numerador = 0
+        denominador1 = 0
+        denominador2 = 0
+        tam = len(V1)
+        numerador = covariancia(V1, V2)*(tam-1)
+        for i in range(tam):
+            denominador1 += (V1[i]-m1)**2
+        for i in range(tam):
+            denominador2 += (V2[i]-m2)**2
+        pearson = numerador/math.sqrt(denominador1*denominador2)
+        return pearson
+    else:
+        return None
+
+    
+def grafico(V, titulo, nome):
+    fig = plt.figure()
+    ax = fig.add_axes([0,0,1,1])
+    ax.set_title(titulo)
+    ax.plot(V, marker='o', label = nome)
+    ax.legend()
+    
+def graficoFreqRelativa(V, titulo):
+    fig, ax = plt.subplots()
+    freq = frequenciaRelativa(V)
+    porcentagem = []
+    valores = []
+    tam = len(freq)
+    for i in range(tam):
+        porcentagem.append(freq[i][1])
+        valores.append(freq[i][0])     
+    ax.pie(porcentagem, labels=valores, autopct='%.2f%%')
+    ax.set_title(titulo)
+    plt.show()
