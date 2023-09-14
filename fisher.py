@@ -174,7 +174,7 @@ def grafico(v, titulo, nome):
     ax.legend()
 
 def graficoFreqRelativa(v, titulo):
-    fig, ax = plt.subplots()
+    _, ax = plt.subplots()
     freq = frequenciaRelativa(v)
     porcentagem = []
     valores = []
