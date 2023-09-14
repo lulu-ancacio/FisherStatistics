@@ -155,13 +155,13 @@ def correlacao(v1, v2):
 
     return cov / (dp1 * dp2)
 
-def correlacaoPearson(v1, v2):
+def correlacao_pearson(v1, v2):
     if len(v1) == len(v2):
         m1 = media(v1)
         m2 = media(v2)
         denominador1 = sum((i - m1) ** 2 for i in v1)
         denominador2 = sum((i - m2) ** 2 for i in v2)
-        numerador = covariancia(v1, v2) * (len(v1) - 1)
+        numerador = covariancia(v1, v2)
         return numerador / math.sqrt(denominador1 * denominador2)
     else:
         return None
