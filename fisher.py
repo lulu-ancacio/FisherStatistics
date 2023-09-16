@@ -2,282 +2,222 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 
-def add(V, n):
-    V.append(n)
-    return V
+def maximo(v):
+    return max(v)
 
-def maximo(V):
-    maximo = max(V)
-    return maximo
+def minimo(v):
+    return min(v)
 
-def minimo(V):
-    minimo = min(V)
-    return minimo
+def quantElem(v):
+    return len(v)
 
-def quantElem(V):
-    quantElem = len(V)
-    return quantElem
+def somaElem(v):
+    return sum(v)
 
-def somaElem(V):
-    soma = 0
-    tam = len(V)
-    for i in range(tam):
-        soma += V[i]
+def somaElemQuadrado(v):
+    soma = sum(x**2 for x in v)
     return soma
 
-def somaElemQuadrado(V):
-    soma = 0
-    tam = len(V)
-    for i in range(tam):
-        soma += V[i]**2
-    return soma
-
-def media(V):
-    tam = len(V)
-    soma = 0
-    for i in range(tam):
-        soma += V[i]
-    media = soma/tam
+def media(v):
+    media = sum(v)/len(v)
     return media
 
-def mediaGeo(V):
-    tam = len(V)
+def mediaGeo(v):
+    tam = len(v)
     mg = 1
     for i in range(tam):
-        mg *= math.pow(V[i], 1/tam)
+        mg *= math.pow(v[i], 1/tam)
     return mg
     
-def mediaHarm(V):
-    tam = len(V)
-    soma = 0
-    for i in range(tam):
-        soma += 1/V[i]
-    mh = tam/soma
+def mediaHarm(v):
+    mh = sum(1/x for x in v)
+    mh = len(v)/mh
     return mh
     
-def mediaQuad(V):
-    tam = len(V)
-    soma = 0
-    for i in range(tam):
-        soma += V[i]**(2)
-    mq = math.sqrt(soma/tam)
+def mediaQuad(v):
+    mq = sum(x**2 for x in v)
+    mq = math.sqrt(mq/len(v))
     return mq
 
-def mediana(V):
-    vCresc = cresc(V)
-    tam = len(V)
+def mediana(v):
+    v_cresc = cresc(v)
+    tam = len(v)
     if tam%2 != 0:
-        mediana = vCresc[int((tam+1)/2)-1]
+        mediana = v_cresc[int((tam+1)/2)-1]
     else:
-        mediana = (vCresc[int(tam/2)-1]+vCresc[int((tam/2))])/2
+        mediana = (v_cresc[int(tam/2)-1]+v_cresc[int((tam/2))])/2
     return mediana
 
-def quartil(V):
-    tam = len(V)
+def quartil(v):
+    tam = len(v)
     if tam>2:
-        vCresc = cresc(V)
-        V1 = []
-        V2 = []
-        q2 = mediana(V)
+        v_cresc = cresc(v)
+        v1 = []
+        v2 = []
+        q2 = mediana(v)
         if tam%2 != 0:
             for i in range(int((tam+1)/2)-1):
-                V1.append(vCresc[i])
+                v1.append(v_cresc[i])
             for i in range(int((tam+1)/2), tam):
-                V2.append(vCresc[i])
+                v2.append(v_cresc[i])
         else:
             for i in range(int(tam/2)):
-                V1.append(vCresc[i])
+                v1.append(v_cresc[i])
             for i in range(int((tam+1)/2), tam):
-                V2.append(vCresc[i])
-        q1 = mediana(V1)
-        q3 = mediana(V2)
+                v2.append(v_cresc[i])
+        q1 = mediana(v1)
+        q3 = mediana(v2)
         quartil = [q1, q2, q3]
         return quartil
     else:
         return None
 
-def moda(V):
-    tam = len(V)
+def moda(v):
+    tam = len(v)
     n = 0
     valores = []
     quantidades = []
-    vCresc = cresc(V)
+    v_cresc = cresc(v)
     for i in range(tam):
-        if vCresc[n] != vCresc[i]:
-            valores.append(vCresc[n])
+        if v_cresc[n] != v_cresc[i]:
+            valores.append(v_cresc[n])
             quantidades.append(i-n)
             n = i
         if  i==(tam-1):
-            valores.append(vCresc[n])
+            valores.append(v_cresc[n])
             quantidades.append(i-n+1)
     maximo = 0
-    quantValores = []
+    quant_valores = []
     moda = []
     for i in range(len(quantidades)):
         if maximo < quantidades[i]:
             maximo = quantidades[i]
     for i in range(len(quantidades)):
         if maximo == quantidades[i]:
-            quantValores.append(i)
-    for i in quantValores:
+            quant_valores.append(i)
+    for i in quant_valores:
         moda.append(valores[i])
     return moda
 
-def cresc(V):
+def cresc(v):
     cont = 0
     armz = 0
-    tam = len(V)
+    tam = len(v)
     repeticao = (tam-1)**2
     while cont < repeticao:
         for i in range(tam-1):
-            if V[i] > V[i+1]:
-                armz = V[i]
-                V[i] = V[i+1]
-                V[i+1] = armz
+            if v[i] > v[i+1]:
+                armz = v[i]
+                v[i] = v[i+1]
+                v[i+1] = armz
         cont += 1
-    return V
+    return v
 
-def decresc(V):
+def decresc(v):
     cont = 0
     armz = 0
-    tam = len(V)
+    tam = len(v)
     repeticao = (tam-1)**2
     while cont < repeticao:
         for i in range(tam-1):
-            if V[i] < V[i+1]:
-                armz = V[i]
-                V[i] = V[i+1]
-                V[i+1] = armz
+            if v[i] < v[i+1]:
+                armz = v[i]
+                v[i] = v[i+1]
+                v[i+1] = armz
         cont += 1
-    return V
+    return v
 
-def varianPopulacional(V):
-    m = media(V)
-    soma = 0
-    tam = len(V)
-    for i in range(tam):
-        soma += (V[i]-m)**2
-        variancia = soma/tam
-    return variancia
+def varianPopulacional(v):
+    m = media(v)
+    soma = sum((x-m)**2 for x in v)
+    v = soma/len(v)
+    return v
 
-def varianAmostral(V):
-    m = media(V)
-    soma = 0
-    tam = len(V)
-    for i in range(tam):
-        soma += (V[i]-m)**2
-        variancia = soma/(tam-1)
-    return variancia
+def varianAmostral(v):
+    m = media(v)
+    soma = sum((x-m)**2 for x in v)
+    v = soma/(len(v)-1)
+    return v
 
-def desvioPadrao(V):
-    m = media(V)
-    soma = 0
-    tam = len(V)
-    for i in range(tam):
-        soma += (V[i]-m)**2
-    dp = math.sqrt(soma/tam)
+def desvioPadrao(v):
+    m = media(v)
+    soma = sum((x-m)**2 for x in v)
+    dp = math.sqrt(soma/len(v))
     return dp
 
-def desvioPadraoAmostral(V):
-    m = media(V)
-    soma = 0
-    tam = len(V)
-    for i in range(tam):
-        soma += (V[i]-m)**2
-    dp = math.sqrt(soma/(tam-1))
+def desvioPadraoAmostral(v):
+    m = media(v)
+    soma = sum((x-m)**2 for x in v)
+    dp = math.sqrt(soma/(len(v)-1))
     return dp
 
-def intervalo(V):
-    vCresc = cresc(V)
-    tam = len(V)
-    minimo = vCresc[0]
-    maximo = vCresc[tam-1]
-    intervalo = maximo - minimo
-    return intervalo
+def intervalo(v):
+    return max(v)-min(v)
 
-def coefiVarian(V):
-    dp = desvioPadrao(V)
-    m = media(V)
+def coefiVarian(v):
+    dp = desvioPadrao(v)
+    m = media(v)
     cv = (dp/m)*100
     return cv
 
-def frequenciaAbs(V):
+def frequenciaAbs(v):
     # [valor, frequencia]
-    tam = len(V)
+    tam = len(v)
     n = 0
     valor_freq = []
-    vCresc = cresc(V)
+    v_cresc = cresc(v)
     for i in range(tam):
-        if vCresc[n] != vCresc[i]:
-            valor_freq.append([vCresc[n], i-n])
+        if v_cresc[n] != v_cresc[i]:
+            valor_freq.append([v_cresc[n], i-n])
             n = i
         if  i==(tam-1):
-            valor_freq.append([vCresc[n], i-n+1])
+            valor_freq.append([v_cresc[n], i-n+1])
     return valor_freq
 
-def frequenciaRelativa(V):
+def frequenciaRelativa(v):
     # [valor, frequencia%]
-    tam = len(V)
+    tam = len(v)
     n = 0
     valor_rel = []
-    vCresc = cresc(V)
+    v_cresc = cresc(v)
     for i in range(tam):
-        if vCresc[n] != vCresc[i]:
-            valor_rel.append([vCresc[n], (i-n)*100/tam])
+        if v_cresc[n] != v_cresc[i]:
+            valor_rel.append([v_cresc[n], (i-n)*100/tam])
             n = i
         if  i==(tam-1):
-            valor_rel.append([vCresc[n], (i-n+1)*100/tam])
+            valor_rel.append([v_cresc[n], (i-n+1)*100/tam])
     return valor_rel
 
-def covariancia(V1, V2):
-    if len(V1) == len(V2):
-        m1 = media(V1)
-        m2 = media(V2)
-        numerador = 0
-        tam = len(V1)
-        for i in range(tam):
-            numerador += (V1[i]-m1)*(V2[i]-m2)
-        c = numerador/(tam-1)
+def covariancia(v1, v2):
+    if len(v1) == len(v2):
+        m1 = media(v1)
+        m2 = media(v2)
+        v = zip(v1, v2)
+        numerador = sum((x-m1)*(y-m2) for x, y in v)
+        c = numerador/(len(v1)-1)
         return c
     else:
-        return None
+        raise ValueError('Número de elementos dos conjuntos desiguais.')
 
-def correlacao(V1, V2):
-    cov = covariancia(V1, V2)
-    dp1 = desvioPadraoAmostral(V1)
-    dp2 = desvioPadraoAmostral(V2)
+def correlacao(v1, v2):
+    cov = covariancia(v1, v2)
+    dp1 = desvioPadraoAmostral(v1)
+    dp2 = desvioPadraoAmostral(v2)
     correlacao = cov/(dp1*dp2)
     return correlacao
     
-def correlacaoPearson(V1, V2):
-    if len(V1) == len(V2):
-        m1 = media(V1)
-        m2 = media(V2)
-        numerador = 0
-        denominador1 = 0
-        denominador2 = 0
-        tam = len(V1)
-        numerador = covariancia(V1, V2)*(tam-1)
-        for i in range(tam):
-            denominador1 += (V1[i]-m1)**2
-        for i in range(tam):
-            denominador2 += (V2[i]-m2)**2
-        pearson = numerador/math.sqrt(denominador1*denominador2)
-        return pearson
-    else:
-        return None
-
-    
-def grafico(V, titulo, nome):
+def graficoLinhaValores(v, titulo, nome):
+    # Fornece um gráfico de linha correspondente à sequência.
     fig = plt.figure()
     ax = fig.add_axes([0,0,1,1])
     ax.set_title(titulo)
-    ax.plot(V, marker='o', label = nome)
+    ax.plot(v, marker='o', label = nome)
     ax.legend()
     
-def graficoFreqRelativa(V, titulo):
-    fig, ax = plt.subplots()
-    freq = frequenciaRelativa(V)
+def graficoFreqRelativa(v, titulo):
+    # Fornece um gráfico de setores com a frequência de cada elemento da sequência.
+    _, ax = plt.subplots()
+    freq = frequenciaRelativa(v)
     porcentagem = []
     valores = []
     tam = len(freq)
@@ -287,3 +227,13 @@ def graficoFreqRelativa(V, titulo):
     ax.pie(porcentagem, labels=valores, autopct='%.2f%%')
     ax.set_title(titulo)
     plt.show()
+
+def graficoBarras(categorias, v, titulox, tituloy):
+    # Fornece um gráfico de barras com a correspondência categorias (horizontal) -> valores (vertical).
+    if len(v)==len(categorias):
+        plt.bar(v, categorias, hatch='/')
+        plt.xlabel(titulox)
+        plt.ylabel(tituloy)
+        plt.show()
+    else:
+        raise ValueError('Número de elementos dos conjuntos desiguais.')
