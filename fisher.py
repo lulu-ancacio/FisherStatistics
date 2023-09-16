@@ -127,11 +127,11 @@ def coefiVarian(v):
     cv = dp / m * 100
     return cv
 
-def frequenciaAbs(v):
+def frequencia_abs(v):
     # (valor, frequencia%)
     return list(set((x, v.count(x)) for x in v))
 
-def frequenciaRelativa(v):
+def frequencia_relativa(v):
     # (valor, frequencia%)
     return list(set((x, v.count(x) / len(v) * 100) for x in cresc(v)))
 
@@ -173,7 +173,7 @@ def grafico(v, titulo, nome):
     ax.plot(v, marker='o', label = nome)
     ax.legend()
 
-def graficoFreqRelativa(v, titulo):
+def grafico_freq_relativa(v, titulo):
     _, ax = plt.subplots()
     freq = frequenciaRelativa(v)
     porcentagem = []
