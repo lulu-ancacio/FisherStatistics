@@ -48,7 +48,7 @@ graficoBarras(meses, precipitacao,'Precipitação e temperatura mensal em São P
 
   <img src='https://user-images.githubusercontent.com/110111018/268431027-dad3f12c-1676-4744-bf74-74b953290d86.png'>
 
-  <h3>Exemplo 2: Análise de dados.</h3>
+  <h3>Exemplo 2: Análise de dados aleatórios.</h3>
 
 ```python
 import random
@@ -59,5 +59,7 @@ for i in range(100):
 graficoLinhaValores(v, 'Gráfico aleatório', 'Exemplo')
 print(f'média: {media(v)} \n moda: {moda(v)} \n mediana: {mediana(v)} \n Desvio padrão: {desvioPadrao(v)}')
 ```
+
+<img src='https://user-images.githubusercontent.com/110111018/268432332-8107bc98-bacf-4fb1-af69-1507093c52ed.png'>
   
   </p>
