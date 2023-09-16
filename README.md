@@ -36,18 +36,28 @@ Quais cálculos este módulo oferece?
 </p>
 
 <br>
-
-<h2>Exemplos de uso</h2>
-  <p>
-    <h3>Exemplo 1: Gráfico pluviométrico</h3>
-  </p>
-  
+<p>
+  <h2>Utilidades</h2>
+  <h3>Exemplo 1: Gráfico pluviométrico de São Paulo em barras.</h3>
+    
 ```python
 meses = ['j', 'f', 'm', 'a', 'm', 'j', 'j', 'a', 's', 'o', 'n', 'd']
 precipitacao = [40,39,77,61,36,34,24,17,10,8,10,17]
 graficoBarras(meses, precipitacao,'Precipitação e temperatura mensal em São Paulo - SP (2022)','Mês', 'Pluviosidade (mm)')
 ```
 
- <p>
-    <img src='https://user-images.githubusercontent.com/110111018/268430811-a32a7035-e2e1-4f74-89fa-420c3786ce31.png'>
+  <img src='https://user-images.githubusercontent.com/110111018/268431027-dad3f12c-1676-4744-bf74-74b953290d86.png'>
+
+  <h3>Exemplo 2: Análise de dados.</h3>
+
+```python
+import random
+v = []
+
+for i in range(100):
+    v.append(random.randint(1,1000))
+graficoLinhaValores(v, 'Gráfico aleatório', 'Exemplo')
+print(f'média: {media(v)} \n moda: {moda(v)} \n mediana: {mediana(v)} \n Desvio padrão: {desvioPadrao(v)}')
+```
+  
   </p>
