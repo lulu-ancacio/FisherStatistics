@@ -37,7 +37,17 @@ Quais cálculos este módulo oferece?
 
 <br>
 
-<h2>Sobre o código</h2>
-<p>
-  As funções deste módulos são formuladas de acordo 
-</p>
+<h2>Exemplos de uso</h2>
+  <p>
+    <h3>Exemplo 1: Gráfico pluviométrico</h3>
+  </p>
+  
+```python
+meses = ['j', 'f', 'm', 'a', 'm', 'j', 'j', 'a', 's', 'o', 'n', 'd']
+precipitacao = [40,39,77,61,36,34,24,17,10,8,10,17]
+graficoBarras(meses, precipitacao,'Precipitação e temperatura mensal em São Paulo - SP (2022)','Mês', 'Pluviosidade (mm)')
+```
+
+ <p>
+    <img src='https://user-images.githubusercontent.com/110111018/268430811-a32a7035-e2e1-4f74-89fa-420c3786ce31.png'>
+  </p>
