@@ -98,19 +98,19 @@ def decresc(v):
         cont += 1
     return v
 
-def varianPopulacional(v):
+def varian_populacional(v):
     m = media(v)
     return sum((i - m) ** 2 for i in v) / len(v)
 
-def varianAmostral(v):
+def varian_amostral(v):
     m = media(v)
     return sum((i - m) ** 2 for i in v) / (len(v) - 1)
 
-def desvioPadrao(v):
+def desvio_padrao(v):
     m = media(v)
     return math.sqrt(sum((i - m) ** 2 for i in v) / len(v))
 
-def desvioPadraoAmostral(v):
+def desvio_padrao_amostral(v):
     m = media(v)
     return math.sqrt(sum((i - m) ** 2 for i in v) / (len(v) - 1))
 
@@ -121,8 +121,8 @@ def intervalo(v):
     intervalo = maximo - minimo
     return intervalo
 
-def coefiVarian(v):
-    dp = desvioPadrao(v)
+def coefi_varian(v):
+    dp = desvio_padrao(v)
     m = media(v)
     cv = dp / m * 100
     return cv
@@ -150,8 +150,8 @@ def covariancia(v1, v2):
 
 def correlacao(v1, v2):
     cov = covariancia(v1, v2)
-    dp1 = desvioPadraoAmostral(v1)
-    dp2 = desvioPadraoAmostral(v2)
+    dp1 = desvio_padrao_amostral(v1)
+    dp2 = desvio_padrao_amostral(v2)
 
     return cov / (dp1 * dp2)
 
@@ -175,7 +175,7 @@ def grafico(v, titulo, nome):
 
 def grafico_freq_relativa(v, titulo):
     _, ax = plt.subplots()
-    freq = frequenciaRelativa(v)
+    freq = frequencia_relativa(v)
     porcentagem = []
     valores = []
     tam = len(freq)
