@@ -206,8 +206,16 @@ def correlacao(v1, v2):
     correlacao = cov/(dp1*dp2)
     return correlacao
     
-def graficoLinhaValores(v, titulo, nome):
-    # Fornece um gráfico de linha correspondente à sequência.
+def graficoLinhaCorresp(categorias, v, titulo, nome):
+    # Fornece um gráfico de linhas com a correspondência categorias (horizontal) -> valores (vertical).
+    fig = plt.figure()
+    ax = fig.add_axes([0,0,1,1])
+    ax.set_title(titulo)
+    ax.plot(categorias, v, marker='o', label = nome)
+    ax.legend()
+    
+def graficoLinha(v, titulo, nome):
+    # Fornece um gráfico de linha correspondente à posição da sequência.
     fig = plt.figure()
     ax = fig.add_axes([0,0,1,1])
     ax.set_title(titulo)
@@ -228,12 +236,13 @@ def graficoFreqRelativa(v, titulo):
     ax.set_title(titulo)
     plt.show()
 
-def graficoBarras(categorias, v, titulox, tituloy):
+def graficoBarraCorresp(categorias, v, titulo, titulox, tituloy):
     # Fornece um gráfico de barras com a correspondência categorias (horizontal) -> valores (vertical).
     if len(v)==len(categorias):
-        plt.bar(v, categorias, hatch='/')
+        plt.bar(categorias, v, hatch='/')
         plt.xlabel(titulox)
         plt.ylabel(tituloy)
+        plt.title(titulo)
         plt.show()
     else:
         raise ValueError('Número de elementos dos conjuntos desiguais.')
