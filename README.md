@@ -41,7 +41,7 @@ Quais cálculos este módulo oferece?
   <h3>Exemplo 1: Gráfico pluviométrico de São Paulo em barras.</h3>
     
 ```python
-meses = ['j', 'f', 'm', 'a', 'm', 'j', 'j', 'a', 's', 'o', 'n', 'd']
+meses = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D']
 precipitacao = [40,39,77,61,36,34,24,17,10,8,10,17]
 graficoBarras(meses, precipitacao,'Precipitação e temperatura mensal em São Paulo - SP (2022)','Mês', 'Pluviosidade (mm)')
 ```
@@ -54,12 +54,12 @@ graficoBarras(meses, precipitacao,'Precipitação e temperatura mensal em São P
 import random
 v = []
 
-for i in range(100):
+for i in range(50):
     v.append(random.randint(1,1000))
 graficoLinhaValores(v, 'Gráfico aleatório', 'Exemplo')
-print(f'média: {media(v)} \n moda: {moda(v)} \n mediana: {mediana(v)} \n Desvio padrão: {desvioPadrao(v)}')
+print(f'Média: {media(v)} \n Moda: {moda(v)} \n Mediana: {mediana(v)} \n Quartil: {quartil(v)} \n Desvio padrão: {desvioPadrao(v)} \n Frequência Absoluta: {frequenciaAbs(v)}')
 ```
 
-<img src='https://user-images.githubusercontent.com/110111018/268432332-8107bc98-bacf-4fb1-af69-1507093c52ed.png'>
+<img src='https://user-images.githubusercontent.com/110111018/268543588-8ef76a23-0acc-42a4-90b1-1d0a0d5060ee.png'>
   
   </p>
