@@ -43,10 +43,10 @@ Quais cálculos este módulo oferece?
 ```python
 meses = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D']
 precipitacao = [40,39,77,61,36,34,24,17,10,8,10,17]
-graficoBarras(meses, precipitacao,'Precipitação e temperatura mensal em São Paulo - SP (2022)','Mês', 'Pluviosidade (mm)')
+graficoBarras(meses, precipitacao,'Precipitação mensal em São Paulo - SP (2022)','Mês', 'Pluviosidade (mm)')
 ```
 
-  <img src='https://user-images.githubusercontent.com/110111018/268431027-dad3f12c-1676-4744-bf74-74b953290d86.png'>
+  <img src='https://user-images.githubusercontent.com/110111018/268543879-219f0400-0ba8-4c5f-9509-f56de5dda250.png'>
 
   <h3>Exemplo 2: Análise de dados aleatórios.</h3>
 
