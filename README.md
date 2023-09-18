@@ -29,7 +29,6 @@ Quais cálculos este módulo oferece?
 <li>Frequência absoluta</li>
 <li>Frequência relativa</li>
 <li>Correlação</li>
-<li>Correlação de Pearson</li>
 <li>Gráfico de dados</li>
 <li>Gráfico de frequência</li>
 </ul>
