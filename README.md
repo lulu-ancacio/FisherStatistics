@@ -41,12 +41,12 @@ Quais cálculos este módulo oferece?
   <h3>Exemplo 1: Gráfico pluviométrico de São Paulo em barras.</h3>
     
 ```python
-meses = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D']
-precipitacao = [40,39,77,61,36,34,24,17,10,8,10,17]
+meses = ['Jan', 'Fev', 'Maio', 'Abril', 'Março', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
+precipitacao = [114,183,158,76,74,49,55,42,99,129,144,189]
 graficoBarras(meses, precipitacao,'Precipitação mensal em São Paulo - SP (2022)','Mês', 'Pluviosidade (mm)')
 ```
 
-  <img src='https://user-images.githubusercontent.com/110111018/268543879-219f0400-0ba8-4c5f-9509-f56de5dda250.png'>
+  <img src='https://user-images.githubusercontent.com/110111018/268544124-132bcb2e-989c-49e5-b37b-daaeb6213b8b.png'>
 
   <h3>Exemplo 2: Análise de dados aleatórios.</h3>
 
