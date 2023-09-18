@@ -7,7 +7,7 @@
 
 <h2>Módulo</h2>
 <p>
-Estatística é um campo muito decimal da matemática, nessa área os cálculos realmente exigem milimetros de precisão e atenção. Pensando nesta complexidade, <strong>FisherStatistics</strong> trás um acervo de operações estatísticas e representações gráficas de um conjunto de dados, trabalhando com Numpy e MatPlotLib.
+Estatística é um campo muito decimal da matemática, nessa área os cálculos realmente exigem milimetros de precisão e atenção. Pensando nesta complexidade, <strong>FisherStatistics</strong> trás um acervo de operações estatísticas e representações gráficas de um conjunto de dados, trabalhando com MatPlotLib.
 <br>
 Quais cálculos este módulo oferece?
 <ul>
