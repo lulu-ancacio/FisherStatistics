@@ -41,12 +41,12 @@ Quais cálculos este módulo oferece?
   <h3>Exemplo 1: Gráfico pluviométrico de São Paulo em barras.</h3>
     
 ```python
-meses = ['Jan', 'Fev', 'Maio', 'Abril', 'Março', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
+meses = ['Jan', 'Fev', 'Mai', 'Abril', 'Março', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
 precipitacao = [114,183,158,76,74,49,55,42,99,129,144,189]
-graficoBarras(meses, precipitacao,'Precipitação mensal em São Paulo - SP (2022)','Mês', 'Pluviosidade (mm)')
+graficoBarraCorresp(meses, precipitacao,'Precipitação mensal em São Paulo - SP (2022)','Mês', 'Pluviosidade (mm)')
 ```
 
-  <img src='https://user-images.githubusercontent.com/110111018/268544124-132bcb2e-989c-49e5-b37b-daaeb6213b8b.png'>
+  <img src='https://user-images.githubusercontent.com/110111018/268549670-8cc80dd8-3cd1-4a81-96c2-2b43261ed487.png'>
 
   <h3>Exemplo 2: Análise de dados aleatórios.</h3>
 
@@ -56,7 +56,7 @@ v = []
 
 for i in range(50):
     v.append(random.randint(1,1000))
-graficoLinhaValores(v, 'Gráfico aleatório', 'Exemplo')
+graficoLinha(v, 'Gráfico aleatório', 'Exemplo')
 print(f'Média: {media(v)} \n Moda: {moda(v)} \n Mediana: {mediana(v)} \n Quartil: {quartil(v)} \n Desvio padrão: {desvioPadrao(v)} \n Frequência Absoluta: {frequenciaAbs(v)}')
 ```
 
