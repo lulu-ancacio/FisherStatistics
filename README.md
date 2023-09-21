@@ -41,7 +41,7 @@ Quais cálculos este módulo oferece?
     
 ```python
 meses = ['Jan', 'Fev', 'Mai', 'Abr', 'Mar', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
-precipitacao = [114,183,158,76,74,49,55,42,99,129,144,189]
+precipitacao = [224,183,158,76,74,49,55,42,99,129,144,189]
 graficoBarraCorresp(meses, precipitacao,'Precipitação mensal em São Paulo - SP (2022)','Mês', 'Pluviosidade (mm)')
 ```
 
