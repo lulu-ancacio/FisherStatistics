@@ -45,7 +45,7 @@ precipitacao = [224,183,158,76,74,49,55,42,99,129,144,189]
 graficoBarraCorresp(meses, precipitacao,'Precipitação mensal em São Paulo - SP (2022)','Mês', 'Pluviosidade (mm)')
 ```
 
-  <img src='https://user-images.githubusercontent.com/110111018/268549670-8cc80dd8-3cd1-4a81-96c2-2b43261ed487.png'>
+  <img src='https://user-images.githubusercontent.com/110111018/269766241-4032ebb9-8aa5-4253-bd85-3acf59e5952b.png'>
 
   <h3>Exemplo 2: Análise de dados aleatórios.</h3>
 
