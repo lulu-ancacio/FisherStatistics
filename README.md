@@ -60,5 +60,18 @@ print(f'Média: {media(v)} \n Moda: {moda(v)} \n Mediana: {mediana(v)} \n Quarti
 ```
 
 <img src='https://user-images.githubusercontent.com/110111018/268543588-8ef76a23-0acc-42a4-90b1-1d0a0d5060ee.png'>
+
+  <h3>Exemplo 3: Análise de frequência de valores.</h3>
+
+```python
+notas = [97, 92, 92, 97, 100, 42, 86, 92, 100, 42, 97, 92]
+graficoFreqRelativa(notas, 'Frequência de Notas')
+nota_porcent = frequenciaRelativa(notas)
+
+for i in range(len(nota_porcent)):
+    print(f'Porcentagem de frequência do valor {nota_porcent[i][0]}: {nota_porcent[i][1]}%')
+```
+
+<img src='https://user-images.githubusercontent.com/110111018/269792619-489b8c7c-5e83-4af8-bb13-4aba2d513d4d.png'>
   
   </p>
